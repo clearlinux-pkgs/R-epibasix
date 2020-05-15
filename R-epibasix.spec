@@ -4,14 +4,13 @@
 #
 Name     : R-epibasix
 Version  : 1.5
-Release  : 17
+Release  : 18
 URL      : https://cran.r-project.org/src/contrib/epibasix_1.5.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/epibasix_1.5.tar.gz
 Summary  : Elementary Epidemiological Functions for Epidemiology and
 Group    : Development/Tools
 License  : GPL-2.0+
 BuildRequires : buildreq-R
-BuildRequires : util-linux
 
 %description
 common epidemiological problems, ranging from sample size
@@ -23,21 +22,22 @@ common epidemiological problems, ranging from sample size
 
 %prep
 %setup -q -c -n epibasix
+cd %{_builddir}/epibasix
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1571824499
+export SOURCE_DATE_EPOCH=1589532407
 
 %install
-export SOURCE_DATE_EPOCH=1571824499
+export SOURCE_DATE_EPOCH=1589532407
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
+export FCFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
+export FFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
 export CXXFLAGS="$CXXFLAGS -O3 -flto -fno-semantic-interposition "
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
